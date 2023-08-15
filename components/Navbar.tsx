@@ -3,6 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import { NavLinks } from "@/constants";
+
 const Navbar = () => {
     return ( 
         <nav className="flexBetween navbar">
@@ -15,6 +17,13 @@ const Navbar = () => {
                         height={43}
                     />
                 </Link>
+                <ul className="xl:flex hidden text-start gap-7">
+                    {NavLinks.map((link) => (
+                        <Link href={link.href} key={link.key}>
+                            {link.text}
+                        </Link>
+                    ))}
+                </ul>
             </div>
         </nav>
     );
