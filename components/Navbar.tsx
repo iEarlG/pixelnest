@@ -6,7 +6,7 @@ import { NavLinks } from "@/constants";
 import AuthProviders from "@/components/AuthProviders";
 
 const Navbar = () => {
-    const session = {};
+    const session = null;
     return ( 
         <nav className="flexBetween navbar">
             <div className="flex-1 flexStart gap-10">
