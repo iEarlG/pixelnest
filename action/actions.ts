@@ -20,10 +20,14 @@ const makeGraphQLRequest = async (query: string, variables = {}) => {
 };
 
 export const getUser = (email: string) => {
+    client.setHeader("x-api-key", apiKey);
+
     return makeGraphQLRequest(getUserQuery, {email});
 };
 
 export const createUser = (name: string, email: string, avatarUrl: string) => {
+    client.setHeader("x-api-key", apiKey);
+
     const variables = {
         input: {
             name,
@@ -31,5 +35,5 @@ export const createUser = (name: string, email: string, avatarUrl: string) => {
             avatarUrl
         }
     }
-    return makeGraphQLRequest(createUsersMutation, {variables});
+    return makeGraphQLRequest(createUsersMutation, variables);
 };
